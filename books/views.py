@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Books,Users
+from django.db.models import Q
 # Create your views here.
 # from .models import Books
 # import csv
@@ -37,7 +38,8 @@ def login(request):
     return HttpResponse(json.dumps(responseObject), content_type="application/json")
 
 @csrf_exempt
-def getbooks(request):
+def getbook(request):
+    responsedata={}
     if(request.method=='POST'):
         try:
             data=ast.literal_eval(request.read().decode("utf-8"))
@@ -52,3 +54,39 @@ def getbooks(request):
         except Books.DoesNotExist:
             return HttpResponse(json.dumps({'status':'error','error':'book not found'}), content_type="application/json")
     return HttpResponse(json.dumps(responsedata), content_type="application/json")
+
+@csrf_exempt
+def register(request):
+    if(request.method=='POST'):
+        try:
+            data=ast.literal_eval(request.read().decode("utf-8"))
+            user=Users.objects.get(Q(username=data['username'])|Q(useremail=data['useremail']))
+
+        except Users.DoesNotExist:
+            try:
+                userinstance = Users.objects.create(username=data['username'], useremail=data['useremail'],
+                                                    password=data['password'])
+            except:
+                return HttpResponse(json.dumps({'status':'error','error':'user not registered'}), content_type="application/json")
+            return HttpResponse(json.dumps({'status':'success','error':'null'}), content_type="application/json")
+    return HttpResponse(json.dumps({'status': 'error', 'error': 'user already exists'}), content_type="application/json")
+
+
+def getfirstsetbooks(request):
+    if(request.method=='GET'):
+        try:
+            response=[]
+            print("i am here")
+            books=Books.objects.all()[:10]
+            print(Books.objects.all()[:10])
+            for book in books:
+                data=(book.get()).split(";")
+                dict={}
+                for d in data:
+                    key,value=d.split("=")
+                    dict[key]=value
+                response.append(dict)
+        except Books.DoesNotExist:
+            return HttpResponse(json.dumps({'status': 'error', 'error': 'books not found'}), content_type="application/json")
+
+    return HttpResponse(json.dumps(response), content_type="application/json")

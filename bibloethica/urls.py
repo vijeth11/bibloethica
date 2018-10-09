@@ -20,5 +20,7 @@ from books import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('login',views.login,name='login'),
-    url('book',views.getbooks,name='book'),
+    url('book',views.getbook,name='book'),
+    url('register',views.register,name='register'),
+    url('bookslist',views.getfirstsetbooks,name='bookslist'),
 ]
