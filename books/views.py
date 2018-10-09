@@ -28,3 +28,6 @@ def login(request):
         except KeyError:
             return HttpResponse("key value error ")
     return HttpResponse("hello world")
+
+def getbooks(request,isbn):
+    return HttpResponse("yet to be created")
