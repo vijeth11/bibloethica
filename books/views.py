@@ -1,5 +1,5 @@
 import ast
-
+import json
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Books,Users
@@ -22,12 +22,33 @@ def login(request):
         data=ast.literal_eval(request.read().decode("utf-8"))
 
         try:
-            Users.objects.get(username=data['username'],password=data['password'])
+            responseObject={}
+            user=Users.objects.get(username=data['username'],password=data['password'])
+            data=(user.get()).split(";")
+            for d in data:
+                key,value=d.split("=")
+                responseObject[key]=value
+            responseObject["status"]="found"
+            responseObject["error"]="null"
         except Users.DoesNotExist:
-            return HttpResponse("user not found")
+            return HttpResponse(json.dumps({'status':'error','error':'user does not exist'}), content_type="application/json")
         except KeyError:
-            return HttpResponse("key value error ")
-    return HttpResponse("hello world")
+            return HttpResponse(json.dumps({'status':'error','error':'key value error '}), content_type="application/json")
+    return HttpResponse(json.dumps(responseObject), content_type="application/json")
 
-def getbooks(request,isbn):
-    return HttpResponse("yet to be created")
+@csrf_exempt
+def getbooks(request):
+    if(request.method=='POST'):
+        try:
+            data=ast.literal_eval(request.read().decode("utf-8"))
+            book=Books.objects.get(isbn=data['isbn'])
+            data=(book.get()).split(";")
+            responsedata={}
+            for d in data:
+                key,value=d.split("=")
+                responsedata[key]=value
+            responsedata["status"]="found"
+            responsedata["error"]="null"
+        except Books.DoesNotExist:
+            return HttpResponse(json.dumps({'status':'error','error':'book not found'}), content_type="application/json")
+    return HttpResponse(json.dumps(responsedata), content_type="application/json")

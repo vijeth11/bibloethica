@@ -8,7 +8,9 @@ class Books (models.Model):
     year=models.IntegerField()
 
     def __str__(self):
-        return "isbn= "+self.isbn+" title= "+self.title+" author= "+self.author+" year= "+str(self.year)
+        return "isbn="+self.isbn+" title="+self.title+" author="+self.author+" year="+str(self.year)
+    def get(self):
+        return "isbn="+self.isbn+";title="+self.title+";author="+self.author+";year="+str(self.year)
 
 class Users (models.Model):
     username = models.CharField(max_length=20)
@@ -16,4 +18,6 @@ class Users (models.Model):
     password=models.CharField(max_length=20)
 
     def __str__(self):
-        return "username= "+self.username+" email= "+self.useremail
+        return "username="+self.username+" email="+self.useremail
+    def get(self):
+        return "username=" + self.username + ";email=" + self.useremail

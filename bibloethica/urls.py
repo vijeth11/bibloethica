@@ -20,4 +20,5 @@ from books import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('login',views.login,name='login'),
+    url('book',views.getbooks,name='book'),
 ]
