@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibilotheca</title>
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+</head>
+<body id="index">
+
+  <header class="header">
+    <a class="index_header_anchor" href="#"><img src="https://via.placeholder.com/30"></a>
+    <h1 class="mx-auto d-flex align-items-center header__title">BIBILOTHECA</h1>
+    <button id="butRefresh" class="headerButton "></button>
+  </header>
+
+  <main class="main">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex align-items-center justify-content-center index_overlay">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex align-items-center justify-content-center text-white index_landing_text">
+          <h1 id="index_HeadText">BIBILOTHECA</h1>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto d-flex align-items-center justify-content-center text-white index_landing_text" >
+          <h3 id="index_SecondaryText">SOME TAG LINE</h3>
+        </div>
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex align-items-center justify-content-center text-white">
+          <button id="index_MainButton" class="index_ProceedButton">Let's Go!</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- add snackbar to your footer section of 
+        your pages at the bottom-->
+        <footer>
+            <!--
+                your footer 
+                content
+            -->
+    
+            <!-- add snackbar -->
+            <div id="snackbar"></div>
+    
+            </footer>
+       
+    
+        <!-- scripts - add at the bottom of your html 
+            pages below is an e.g-->
+        <script src="scripts/offline.js"></script>
+
+  <script src="scripts/app.js" async></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+
+</body>
+</html>
