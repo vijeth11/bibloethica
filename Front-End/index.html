@@ -8,49 +8,47 @@
   <title>Bibilotheca</title>
   <link rel="stylesheet" type="text/css" href="styles/inline.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css">
 
 
 </head>
 <body id="index">
 
   <header class="header">
-    <a class="index_header_anchor" href="#"><img src="https://via.placeholder.com/30"></a>
-    <h1 class="mx-auto d-flex align-items-center header__title">BIBILOTHECA</h1>
-    <button id="butRefresh" class="headerButton "></button>
+    <!-- Image and text -->
+<nav class="navbar fixed-top navbar-light bg-transparent index_Navbar">
+  <a class="navbar-brand index_navBarAnchor" href="#">
+    <img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    <span class="text-white">Bibilotheca</span>
+  </a>
+  <div class="index_navBarRight">
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><span class="text-white active"><span class="mdi mdi-dots-vertical"></span></a>
+        </li>
+      </ul>
+  </div>
+</nav>
   </header>
 
-  <main class="main">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex align-items-center justify-content-center index_overlay">
+  <main class="main" style="background-color:rgba(0,0,0,0.5);">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex align-items-center justify-content-center index_mainContent">
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex align-items-center justify-content-center text-white index_landing_text">
           <h1 id="index_HeadText">BIBILOTHECA</h1>
         </div>
 
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 mx-auto d-flex align-items-center justify-content-center text-white index_landing_text" >
-          <h3 id="index_SecondaryText">SOME TAG LINE</h3>
+          <h3 id="index_SecondaryText">READ . EXPLORE . LEARN</h3>
         </div>
 
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto d-flex align-items-center justify-content-center text-white">
-          <button id="index_MainButton" class="index_ProceedButton">Let's Go!</button>
+          <button id="index_MainButton" class="index_ProceedButton"><span class="text-black">Let's Go</span></button>
         </div>
 
       </div>
     </div>
   </main>
-
-  <!-- add snackbar to your footer section of 
-        your pages at the bottom-->
-        <footer>
-            <!--
-                your footer 
-                content
-            -->
-    
-            <!-- add snackbar -->
-            <div id="snackbar"></div>
-    
-            </footer>
-       
     
         <!-- scripts - add at the bottom of your html 
             pages below is an e.g-->
